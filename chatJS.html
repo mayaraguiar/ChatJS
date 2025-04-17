@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="display: flex;">
+
+    <div>
+        <canvas id="grafico_linha"style="position: relative; height:40vh; width:40vw"></canvas>
+    </div>
+
+    <div>
+        <canvas id="grafico_barra" style="position: relative; height:40vh; width:40vw"></canvas>
+    </div>
+
+</body>
+
+
+<script>
+  const linha = document.getElementById('grafico_linha');
+
+  new Chart(linha, {
+    type: 'line',
+    data: {
+      labels: ['00:00','01:00','02:00','03:00','04:00','05:00','06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+      datasets: [{
+        label: 'Luminosidade no período de 24h',
+        data: [0,1,0,2,1,3,50,200,400,600,750,850,950,900,800,600,400,200,50,1,2,1,1,0,],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('grafico_barra');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Jan', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul','Ago','Set','Out','Nov','Dez'],
+      datasets: [{
+        label: ['Média de horas diárias com irradiância Solar > 200 W/m² durante os meses'],
+        data: [7 , 6, 8,8,7,6,5,6,8,7,8,7],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+
+ 
+
+ 
+</html>
